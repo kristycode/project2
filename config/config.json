@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "R3ydeTigres!",
+=======
+    "password": "mari$0l18R",
+>>>>>>> 8a7d5f4d180f2bd91c2ecec7238e7a7671628e22
     "database": "dreamstream_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
