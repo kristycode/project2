@@ -1,7 +1,28 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require("express");
+const session = require("express-session");
+const passport = require("./config/passport");
 
-app.get('/', (req, res) => res.send('Hello World!'))
+const PORT = process.env.PORT || 3000;
+const db = require("./models");
 
-app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
+const app = express();
+// Creating express app and configuring middleware needed for authentication
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+// require our routes here:
+
+app.get("/", (req, res) => res.send("dreamstream home"));
+
+db.sequelize.sync().then(function () {
+  app.listen(PORT, () =>
+    console.log(`...drift into the dreamstream... http://localhost:${PORT}`)
+  );
+});
