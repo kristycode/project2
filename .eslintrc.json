@@ -44,12 +44,8 @@
             "unix"
         ],
         "quotes": [
-<<<<<<< HEAD
             "error",
             "double"
-=======
-            "error"
->>>>>>> 8a7d5f4d180f2bd91c2ecec7238e7a7671628e22
         ],
         "semi": [
             "error",
