@@ -1,7 +1,9 @@
 const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
-
+// adding dotenv-json to hide SQL password
+require("dotenv").config();
+console.log(process.env.DB_PASSWORD);
 const PORT = process.env.PORT || 3000;
 const db = require("./models");
 
