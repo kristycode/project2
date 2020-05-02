@@ -44,7 +44,8 @@
             "unix"
         ],
         "quotes": [
-            "error"
+            "error",
+            "double"
         ],
         "semi": [
             "error",
