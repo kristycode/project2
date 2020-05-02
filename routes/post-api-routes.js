@@ -1,29 +1,62 @@
-// Requiring path to so we can use relative routes to our HTML files
-var path = require("path");
+// Requiring our models
+var db = require("../models");
 
-// Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/isAuthenticated");
-
+// Routes
+// =============================================================
 module.exports = function (app) {
-  app.get("/", function (req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
+  // GET route for getting all of the posts
+  app.get("/api/posts", function (req, res) {
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
     }
-    res.sendFile(path.join(__dirname, "../public/signup.html"));
+    db.Post.findAll({
+      where: query
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 
-  app.get("/login", function (req, res) {
-    // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/members");
-    }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+  // Get route for retrieving a single post
+  app.get("/api/posts/:id", function (req, res) {
+    db.Post.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (dbPost) {
+      console.log(dbPost);
+      res.json(dbPost);
+    });
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/dreamstream-home.html"));
+  // POST route for saving a new post
+  app.post("/api/posts", function (req, res) {
+    db.Post.create(req.body).then(function (dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // DELETE route for deleting posts
+  app.delete("/api/posts/:id", function (req, res) {
+    db.Post.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function (dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+  // PUT route for updating posts
+  app.put("/api/posts", function (req, res) {
+    db.Post.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function (dbPost) {
+      res.json(dbPost);
+    });
   });
 };
