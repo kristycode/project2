@@ -23,8 +23,6 @@ require("./routes/html-routes.js")(app);
 require("./routes/post-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 
-app.get("/", (req, res) => res.send("dreamstream home"));
-
 db.sequelize.sync().then(function () {
   app.listen(PORT, () =>
     console.log(`...drift into the dreamstream... http://localhost:${PORT}`)
