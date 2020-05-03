@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 // Requiring our models and passport as we've configured it
 var db = require("../models");
+console.log("this is the database import", db.User);
 var passport = require("../config/passport");
 
 module.exports = function (app) {
@@ -15,7 +16,8 @@ module.exports = function (app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function (req, res) {
-    db.user.create({
+    db.User.create({
+      email: req.body.email,
       username: req.body.username,
       password: req.body.password
     })
