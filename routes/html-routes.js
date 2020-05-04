@@ -10,7 +10,8 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.sendFile(path.join(__dirname, "../test_public/signup.html"));
+    res.render("signup", { user: req.user });
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   app.get("/login", function (req, res) {
@@ -18,7 +19,8 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.sendFile(path.join(__dirname, "../test_public/login.html"));
+    res.render("login", { user: req.user });
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.

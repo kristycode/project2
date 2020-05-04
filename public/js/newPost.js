@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // Gets an optional query string from our url (i.e. ?post_id=23)
-  //var route = require("../../routes/html-routes");
+  // var route = require("../../routes/html-routes");
   var url = window.location.search;
   var postId;
   var userId;
@@ -34,7 +34,7 @@ $(document).ready(function () {
       post_title: titleInput.val().trim(),
       post_content: bodyInput.val().trim(),
       post_category: postCategorySelect.val(),
-      UserId: userSelect.val()
+      // UserId: userSelect.val()
     };
     console.log("this is my post data:")
     console.log(newPost);
