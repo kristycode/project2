@@ -1,13 +1,21 @@
 /* eslint-disable semi */
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define("User", {
+  const Post = sequelize.define("Post", {
+    post_title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     post_content: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    post_category: {
       type: DataTypes.STRING,
       allowNull: false
     },
     url_image: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {});
   Post.associate = function (models) {
