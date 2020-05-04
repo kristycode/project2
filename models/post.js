@@ -1,14 +1,18 @@
 /* eslint-disable semi */
 module.exports = (sequelize, DataTypes) => {
   const Post = sequelize.define("User", {
-    userID: DataTypes.INTEGER,
-    post_title: DataTypes.STRING,
-    post_content: DataTypes.STRING,
-    post_image: DataTypes.STRING
+    post_content: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    url_image: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {});
   Post.associate = function (models) {
     // associations can be defined here
-    Post.belongsTo(models.user, {
+    Post.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
