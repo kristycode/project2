@@ -1,10 +1,10 @@
 /* eslint-disable semi */
 module.exports = (sequelize, DataTypes) => {
   const Comment = sequelize.define("User", {
-    userID: DataTypes.INTEGER,
-    post_title: DataTypes.STRING,
-    post_content: DataTypes.STRING,
-    post_image: DataTypes.STRING
+    commentary: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {});
   Comment.associate = function (models) {
     // associations can be defined here
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     Comment.belongsTo(models.Post, {
-      foreignKey2: {
+      foreignKey: {
         allowNull: false
       }
     });
