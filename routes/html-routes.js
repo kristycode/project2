@@ -24,6 +24,10 @@ module.exports = function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dreamstream-home", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../test_public/dreamstream-home.html"));
+    res.render("dreamstream-home", { user: req.user });
   });
+
+  app.get("/new-dream", isAuthenticated, function (req, res) {
+    res.render("newDream", { user: req.user });
+  })
 };
