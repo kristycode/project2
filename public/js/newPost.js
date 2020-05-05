@@ -3,9 +3,8 @@ $(document).ready(function () {
   // var route = require("../../routes/html-routes");
   var url = window.location.search;
   var postId;
-  var userId;
   // Sets a flag for whether or not we're updating a post to be false initially
-  var updating = false;
+  // var updating = false;
 
   // If we have this section in our url, we pull out the post id from the url
   // In localhost:8080/cms?post_id=1, postId is 1
@@ -75,9 +74,7 @@ $(document).ready(function () {
         postCategorySelect.val(data.category);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
-        updating = true;
       }
     });
   }
-
 });
