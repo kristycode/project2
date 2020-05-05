@@ -1,6 +1,6 @@
 /* eslint-disable semi */
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define("User", {
+  const Comment = sequelize.define("Comment", {
     commentary: {
       type: DataTypes.STRING,
       allowNull: false

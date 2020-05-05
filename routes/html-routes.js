@@ -1,5 +1,5 @@
 // Requiring path to so we can use relative routes to our HTML files
-var path = require("path");
+// var path = require("path");
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/isAuthenticated");
@@ -10,7 +10,8 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.sendFile(path.join(__dirname, "../test_public/signup.html"));
+    res.render("signup", { user: req.user });
+    // res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   app.get("/login", function (req, res) {
@@ -18,12 +19,17 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.sendFile(path.join(__dirname, "../test_public/login.html"));
+    res.render("login", { user: req.user });
+    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dreamstream-home", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../test_public/dreamstream-home.html"));
+    res.render("dreamstream-home", { user: req.user });
+  });
+
+  app.get("/new-dream", isAuthenticated, function (req, res) {
+    res.render("newDream", { user: req.user });
   });
 };
