@@ -40,6 +40,12 @@ module.exports = function (app) {
     });
   });
 
+  app.post("/api/posts/:id/comment", async (req, res) => {
+    const comment = await db.Comment.create({
+    });
+    return res.json(comment);
+  });
+
   // DELETE route for deleting posts
   app.delete("/api/posts/:id", function (req, res) {
     db.Post.destroy({
