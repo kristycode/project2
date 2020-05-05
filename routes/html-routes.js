@@ -11,7 +11,7 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.render("signup", { 
+    res.render("signup", {
       user: req.user,
       style: "login.css"
     });
@@ -43,19 +43,29 @@ module.exports = function (app) {
       const data = dbPost.map(e =>
         e.dataValues
       );
-      // console.log(dbPost);
-      console.log(data);
       res.render("dreamstream-home", {
         post: data,
         user: req.user,
         style: "main.css"
-
       });
     });
-    // res.render("dreamstream-home", { user: req.user });
   });
 
   app.get("/new-dream", isAuthenticated, function (req, res) {
     res.render("newDream", { user: req.user });
+  });
+
+  app.get("/dreams/:id", (req, res) => {
+    db.Post.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(detail => {
+        console.log(detail);
+        res.render("dream-detail", {
+          post: detail
+        });
+      });
   });
 };

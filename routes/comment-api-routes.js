@@ -10,7 +10,7 @@ module.exports = function (app) {
     if (req.query.post_id) {
       query.PostId = req.query.post_id;
     }
-    db.Commentt.findAll({
+    db.Comment.findAll({
       where: query
     }).then(function (dbComment) {
       res.json(dbComment);
