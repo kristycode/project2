@@ -14,11 +14,10 @@ module.exports = function (app) {
       where: query
     }).then(function (dbPost) {
       console.log(dbPost);
-      res.render("dreamstream-home",{
+      res.render("dreamstream-home", {
         post: dbPost
       });
     });
-
   });
 
   // Get route for retrieving a single post

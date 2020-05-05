@@ -3,7 +3,7 @@
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/isAuthenticated");
-var db = require("../models")
+var db = require("../models");
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
@@ -39,7 +39,7 @@ module.exports = function (app) {
       );
       // console.log(dbPost);
       console.log(data);
-      res.render("dreamstream-home",{
+      res.render("dreamstream-home", {
         post: data,
         user: req.user
       });
