@@ -13,7 +13,10 @@ module.exports = function (app) {
     db.Post.findAll({
       where: query
     }).then(function (dbPost) {
-      res.json(dbPost);
+      console.log(dbPost);
+      res.render("dreamstream-home", {
+        post: dbPost
+      });
     });
   });
 

@@ -5,5 +5,27 @@
     <h2>Welcome {{user.username}} </h2>
     <a href="/new-dream" type="button" class="btn btn-primary">post a dream</a>
   </div>
-  <div class="col">Dream posts will live here</div>
+</div>
+
+
+
+<div class="row">
+  {{#each post}}
+  
+
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{post_title}}</h5>
+    <p class="card-text">{{post_content}}</p>
+    {{!-- <a href="" class="btn btn-primary">Go somewhere</a> --}}
+  </div>
+
+  
+  {{/each}}
+</div>
+
+
+
+
 </div>

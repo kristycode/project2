@@ -3,6 +3,7 @@
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/isAuthenticated");
+var db = require("../models");
 
 module.exports = function (app) {
   app.get("/", function (req, res) {
@@ -26,7 +27,24 @@ module.exports = function (app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/dreamstream-home", isAuthenticated, function (req, res) {
-    res.render("dreamstream-home", { user: req.user });
+    var query = {};
+    if (req.query.user_id) {
+      query.UserId = req.query.user_id;
+    }
+    db.Post.findAll({
+      where: query
+    }).then(function (dbPost) {
+      const data = dbPost.map(e =>
+        e.dataValues
+      );
+      // console.log(dbPost);
+      console.log(data);
+      res.render("dreamstream-home", {
+        post: data,
+        user: req.user
+      });
+    });
+    // res.render("dreamstream-home", { user: req.user });
   });
 
   app.get("/new-dream", isAuthenticated, function (req, res) {
