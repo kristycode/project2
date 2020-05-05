@@ -20,7 +20,10 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.render("login", { user: req.user });
+    res.render("login", {
+      user: req.user,
+      style: "login.css"
+    });
     // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
@@ -41,7 +44,9 @@ module.exports = function (app) {
       console.log(data);
       res.render("dreamstream-home", {
         post: data,
-        user: req.user
+        user: req.user,
+        style: "main.css"
+
       });
     });
     // res.render("dreamstream-home", { user: req.user });

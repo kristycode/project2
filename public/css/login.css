@@ -1,0 +1,7 @@
+body {
+    background-color: lightblue;
+}
+
+.img-fluid {
+    background-image: url(../assets/dreamscape.jpg);
+}
