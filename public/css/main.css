@@ -1,3 +1,11 @@
 body {
-    background-color: #778899;
+  background-image: linear-gradient(120deg, black, #2219a5);
+  min-height: 100vh;
+  text-decoration: whitesmoke;
+}
+
+#mainHeader {
+    padding: 0;
+    border-radius: 5px;
+
 }

@@ -11,7 +11,10 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/dreamstream-home");
     }
-    res.render("signup", { user: req.user });
+    res.render("signup", { 
+      user: req.user,
+      style: "login.css"
+    });
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 

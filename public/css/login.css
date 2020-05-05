@@ -1,7 +1,14 @@
 body {
-    background-color: lightblue;
+    background-image: url(../assets/dreamscape.jpg);
+    background-size: cover;
+    color: whitesmoke;
 }
 
-.img-fluid {
-    background-image: url(../assets/dreamscape.jpg);
+.landingForm {
+    margin-top: 50px;
+}
+
+.landingHeader {
+    margin-top: 10px;
+    text-align: right;
 }
