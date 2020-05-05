@@ -19,7 +19,7 @@ $(document).ready(function () {
   var titleInput = $("#title");
   var dreamForm = $("#dreamPost");
   var postCategorySelect = $("#category");
-  var userSelect = $.get("/api/user_data");
+  // var userSelect = $.get("/api/user_data");
   // Giving the postCategorySelect a default value
   postCategorySelect.val("Personal");
   // Adding an event listener for when the form is submitted
@@ -29,24 +29,33 @@ $(document).ready(function () {
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
       return;
     }
-    // Constructing a newPost object to hand to the database
-    var newPost = {
-      post_title: titleInput.val().trim(),
-      post_content: bodyInput.val().trim(),
-      post_category: postCategorySelect.val(),
-      // UserId: userSelect.val()
-    };
-    console.log("this is my post data:")
-    console.log(newPost);
+    function userIdFunc () {
+      $.get("/api/user_data", function (data) {
+        console.log(data);
+        var userId;
+        if (data) {
+          userId = data.id;
+          // return userId;
+          var newPost = {
+            post_title: titleInput.val().trim(),
+            post_content: bodyInput.val().trim(),
+            post_category: postCategorySelect.val(),
+            UserId: userId
+          };
+          console.log("this is my post data:");
+          console.log(newPost);
 
-    // If we're updating a post run updatePost to update a post
-    // Otherwise run submitPost to create a whole new post
-    // if (updating) {
-    //   newPost.id = postId;
-    //   updatePost(newPost);
-    // } else {
-    submitPost(newPost);
-    // }
+          // If we're updating a post run updatePost to update a post
+          // Otherwise run submitPost to create a whole new post
+          // if (updating) {
+          //   newPost.id = postId;
+          //   updatePost(newPost);
+          // } else {
+          submitPost(newPost);
+        }
+      });
+    }
+    userIdFunc();
   });
 
   // Submits a new post and brings user to blog page upon completion
@@ -71,15 +80,4 @@ $(document).ready(function () {
     });
   }
 
-  // Update a given post, bring user to the blog page when done
-//   function updatePost (post) {
-//     $.ajax({
-//       method: "PUT",
-//       url: "/api/posts",
-//       data: post
-//     })
-//       .then(function () {
-//         window.location.href = "/blog";
-//       });
-//   }
 });
