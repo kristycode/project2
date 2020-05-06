@@ -2,31 +2,31 @@
 {{> header}}
 
 
-<h4>share your latest dream</h4>
+
 
 <div class="container">
   <div class="row">
     <div class="row">
       <div class="col-sm-2 mt-4">
-        <a class="btn btn-warning" href="/dreamstream-home">nevermind...</a>
+
       </div>
     </div>
-    <div class="col-md-5 offset-md-3">
+    <div class="col-md-6 offset-md-3">
+      <p></p>
+      <h3>share your latest dream</h3></p></p>
       <form id="dreamPost" action="/api/posts" method="POST">
         <div class="form-group">
-          <label for="title">Dream Title:</label>
-          <input type="text" class="form-control" id="title">
+          <label for="title">dream title</label>
+          <input type="text" class="form-control" id="title"><br>
           
-          <label for="body">What happened in your dream?</label>
-          <textarea class="form-control" rows="10" id="body"></textarea>
-
-          {{!-- <label for="attributes">select your dream attributes</label></br> --}}
-          <label for="category">enter a single dream-vision key word:</label>
+          <label for="body">what happened in your dream?</label>
+          <textarea class="form-control" rows="10" id="body"></textarea><br>
+          <label for="category">enter a single key word to describe your vision:</label>
           <input type="text" class="form-control" id="category">
           <br>
-        <br>
-        <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
-</form>
+        <center><button type="submit" class="btn btn-success submit btn-lg">submit</button></center>
+</form></P>
+              <center><a class="btn btn-warning" href="/dreamstream-home">nevermind</a></center>
 </div>
 </div>
 </div>

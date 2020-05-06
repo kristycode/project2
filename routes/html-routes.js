@@ -53,7 +53,7 @@ module.exports = function (app) {
   app.get("/new-dream", isAuthenticated, function (req, res) {
     res.render("newDream", {
       user: req.user,
-      style: "newPost.css"
+      style: "main.css"
     });
   });
 
