@@ -2,16 +2,15 @@
 <div class="row" id="mainContent">
   <div class="col-md-6 col-md-offset-3">
     <h2></h2>
-    <a href="/new-dream" type="button" class="btn btn-primary">post a dream</a>
   </div>
 </div>
 <div class="row">
-  <div class="col-4">
+  <div class="col-2">
     {{!-- this is just a placeholder --}}
   </div>
-  <div class="col-4">
+  <div class="col-8">
   {{#each post}}
-  <div class="card" data-id="{{id}}" style="width: 25rem;">
+  <div class="card" data-id="{{id}}" style="width: 40rem;">
     <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{post_title}} by {{User.dataValues.username}}</h5>
@@ -23,7 +22,7 @@
   {{/each}} 
 
   </div>
-  <div class="col-4">
+  <div class="col-2">
     {{!-- this is just a placeholder --}}
   </div>
 </div>

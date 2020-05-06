@@ -1,15 +1,20 @@
 body {
   /* background-image: url(../assets/stars.jpg);
   background-size: contain; */
-  background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
+  background-image: linear-gradient(
+  rgba(233, 251, 255, 0.712), 
+  rgb(255, 255, 255));
+  background-repeat: no-repeat;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 #mainHeader {
-  color: white;
-  background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
+  color: rgb(218, 237, 248);
+  background-image: linear-gradient(0.25turn,
+  rgb(9, 44, 73), 
+  rgb(20, 103, 151));
   border-radius: 5px;
-  text-shadow: darkgray 1px 1px;
+  /* text-shadow: rgb(56, 60, 66) 1px 1px; */
 }
 
 #mainContent {
@@ -17,5 +22,5 @@ body {
 }
 
 #mainDreamstream {
-  font-size: 20px;
+  font-size: 30px;
 }
