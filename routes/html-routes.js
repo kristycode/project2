@@ -15,7 +15,6 @@ module.exports = function (app) {
       user: req.user,
       style: "login.css"
     });
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
   app.get("/login", function (req, res) {
@@ -27,7 +26,6 @@ module.exports = function (app) {
       user: req.user,
       style: "login.css"
     });
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -63,7 +61,7 @@ module.exports = function (app) {
     })
       .then(detail => {
         console.log(detail);
-        res.render("dream-detail", {
+        res.render("user-dream", {
           post: detail
         });
       });

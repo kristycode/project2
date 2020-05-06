@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  // require("dotenv").config();
+
   var bodyInput = $("#body");
   var titleInput = $("#title");
   var dreamForm = $("#dreamPost");
@@ -12,7 +14,6 @@ $(document).ready(function () {
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
       return;
     }
-
     userIdFunc();
   });
 

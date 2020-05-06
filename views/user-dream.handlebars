@@ -1,0 +1,14 @@
+{{> header}}
+
+  <div class="col-6">
+  {{#each}}
+  <div class="card" data-id="{{this.id}}" style="width: 18rem;">
+    <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{this.post_title}}</h5>
+      <p class="card-text">{{this.post_content}}</p>
+    </div>
+  </div>
+    {{/each}}
+
+  </div>
