@@ -12,13 +12,14 @@
   </div>
   <div class="col-6">
   {{#each post}}
-  <div class="card" data-id="{{id}}" style="width: 18rem;">
+  <div class="card" data-id="{{id}}" style="width: 40rem;">
     <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">{{post_title}}</h5>
+      <h5 class="card-title"> {{post_title}} by {{userName}}</h5>
       <p class="card-text">{{post_content}}</p>
     </div>
   </div>
+  </p>
     {{/each}}
 
   </div>
