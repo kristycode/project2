@@ -1,16 +1,11 @@
 $(document).ready(function () {
   var bodyInput = $("#body");
   var titleInput = $("#title");
-  var dreamForm = $("#dreamPost");
   var postCategorySelect = $("#category");
-  var qCategory = postCategorySelect.val();
-  var apiKey = "16264583-da5b3c8db2ac66bc7ed9ce8a3&q";
-  var pixaBay = `https://pixabay.com/api/?key=${apiKey}&q=${qCategory}&safesearch=true&image_type=photo`;
-
-  console.log(pixaBay);
+  var dreamForm = $("#dreamPost");
 
   $(dreamForm).on("submit", function handleFormSubmit (event) {
-    console.log(pixaBay);
+    // console.log(pixaBay);
     event.preventDefault();
     if (!titleInput.val().trim() || !bodyInput.val().trim() || !postCategorySelect.val().trim()) {
       return;
@@ -20,17 +15,21 @@ $(document).ready(function () {
 
   const userIdFunc = async () => {
     try {
+      var qCategory = postCategorySelect.val();
+      var apiKey = "16264583-da5b3c8db2ac66bc7ed9ce8a3&q";
+      var pixaBay = `https://pixabay.com/api/?key=${apiKey}&q=${qCategory}&safesearch=true&image_type=photo`;
+
       const userData = await $.get("/api/user_data");
+      console.log(`Category: ${qCategory}`);
+      console.log(`URL: ${pixaBay}`);
       const photoURL = await $.get(pixaBay);
       var res = await photoURL.hits[1].webformatURL;
-      // if (userData) {
       const userId = userData.id;
       console.log(res);
       var newPost = {
         post_title: titleInput.val().trim(),
         post_content: bodyInput.val().trim(),
         post_category: postCategorySelect.val(),
-        // post_color: postColorSelect.val(),
         url_image: res,
         UserId: userId
       };
