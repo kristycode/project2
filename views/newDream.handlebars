@@ -2,35 +2,64 @@
 {{> header}}
 
 
-  <h4>share your latest dream</h4>
+<h4>share your latest dream</h4>
 
- <div class="container">
+<div class="container">
+  <div class="row">
     <div class="row">
-      <div class="row">
-        <div class="col-sm-2 mt-4">
-          <a class="btn btn-warning" href="/dreamstream-home">nevermind...</a>
-        </div>
+      <div class="col-sm-2 mt-4">
+        <a class="btn btn-warning" href="/dreamstream-home">nevermind...</a>
       </div>
-      <div class="col-md-5 offset-md-3">
-        <form id="dreamPost" action="/api/posts" method="POST">
-          <div class="form-group">
-            <label for="title">Dream Title:</label>
-            <input type="text" class="form-control" id="title">
-            <br />
-            <label for="body">Body:</label>
-            <textarea class="form-control" rows="10" id="body"></textarea>
-            <div class="form-group">
+    </div>
+    <div class="col-md-5 offset-md-3">
+      <form id="dreamPost" action="/api/posts" method="POST">
+        <div class="form-group">
+          <label for="title">Dream Title:</label>
+          <input type="text" class="form-control" id="title">
+          <br />
+          <label for="body">Body:</label>
+          <textarea class="form-control" rows="10" id="body"></textarea>
+          {{!-- <div class="form-group">
               <label for="category">Select Category:</label>
               <select class="custom-select" id="category">
                 <option value="Personal">Personal</option>
                 <option value="Product Review">Product Review</option>
                 <option value="Political">Political</option>
               </select>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+            </div> --}}
+
+          <label for="attributes">select your dream attributes</label></br>
+
+          {{!-- <div class="form-group col-md-4">
+            <label for="category">category</label>
+            <select id="category" class="form-control" placeholder="category...">
+              <option> nature </option>
+              <option> feelings </option>
+              <option> health </option>
+              <option> religion </option>
+              <option> animals </option>
+              <option> people </option>
+            </select>
+          </div> --}}
+          <label for="category">type your dream key word:</label>
+          <input type="text" class="form-control" id="category">
+          <br />
+          {{!-- <label for="color">your dream color:</label>
+            <select id="color" class="form-control" placeholder="color...">
+              <option> red </option>
+              <option> orange </option>
+              <option> yellow </option>
+              <option> green </option>
+              <option> blue </option>
+              <option> pink </option>
+              <option> white </option>
+              <option> black </option>
+            </select>
+          </div> --}}
+
+        <br />
+        <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+</form>
+</div>
+</div>
+</div>
