@@ -38,25 +38,16 @@ module.exports = function (app) {
       query.UserId = req.query.user_id;
     }
     db.Post.findAll({
-      where: query
+      where: query,
+      include: [db.User]
     }).then(function (dbPost) {
       var data = dbPost.map(e =>
         e.dataValues
       );
-      console.log(data);
-      db.User.findOne({
-        where: {
-          id: data[0].UserId
-        }
-      }).then(function (dbUser) {
-        // console.log(dbUser.dataValues);
-        var data2 = dbUser.dataValues.username;
-        data[0].userName = data2;
-        res.render("dreamstream-home", {
-          post: data,
-          user: req.user,
-          style: "main.css"
-        });
+      res.render("dreamstream-home", {
+        post: data,
+        user: req.user,
+        style: "main.css"
       });
     });
   });
@@ -69,11 +60,14 @@ module.exports = function (app) {
     db.Post.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Comment, db.User]
+      // To call it in the handlebars it would be
+      // for the comment: {{Comment.dataValues.commentary}}
     })
       .then(detail => {
         console.log(detail);
-        res.render("dream-detail", {
+        res.render("user-dream", {
           post: detail
         });
       });
