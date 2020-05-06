@@ -1,0 +1,21 @@
+body {
+  background-image: url(../assets/clouds.jpg);
+  background-size: contain;
+  font-size: 25px;
+  color: rgb(55, 140, 194);
+  font-family: 'Josefin Sans', sans-serif;
+  text-shadow: black 1px 1px;
+
+}
+
+#mainHeader {
+    color: white;
+    background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
+    border-radius: 5px;
+    text-shadow: black 1px 1px;
+  }
+  
+  #mainContent {
+    margin: 10px;
+  }
+  

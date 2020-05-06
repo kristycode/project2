@@ -1,16 +1,20 @@
 body {
-  background-image: linear-gradient(120deg, black, #2219a5);
-  min-height: 100vh;
-  text-decoration: whitesmoke;
+  background-image: url(../assets/stars.jpg);
+  background-size: contain;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 #mainHeader {
-    /* padding: 0; */
-    border-radius: 5px;
-    /* margin-bottom: 20px; */
-
+  color: white;
+  background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
+  border-radius: 5px;
+  text-shadow: darkgray 1px 1px;
 }
 
 #mainContent {
   margin: 10px;
+}
+
+#mainDreamstream {
+  font-size: 20px;
 }
