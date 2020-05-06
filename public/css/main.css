@@ -1,6 +1,7 @@
 body {
-  background-image: url(../assets/stars.jpg);
-  background-size: contain;
+  /* background-image: url(../assets/stars.jpg);
+  background-size: contain; */
+  background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
   font-family: 'Josefin Sans', sans-serif;
 }
 

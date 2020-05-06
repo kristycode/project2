@@ -1,6 +1,5 @@
 body {
-  background-image: url(../assets/clouds.jpg);
-  background-size: contain;
+  background-image: linear-gradient(0.25turn, rgb(3, 3, 49), #201c5e);
   font-size: 25px;
   color: rgb(55, 140, 194);
   font-family: 'Josefin Sans', sans-serif;
