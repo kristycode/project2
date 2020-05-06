@@ -10,16 +10,15 @@
     <p>row 2 col 1</p>
   </div>
   <div class="col-6">
-    {{#each post}}
-    <div class="card" data-id="{{id}}" style="width: 18rem;">
-      <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{post_title}}</h5>
-        <p class="card-text">{{post_content}}</p>
-        <button type="submit" class="btn btn-primary commentBtn">comments</button>
-      </div>
+  {{#each post}}
+  <div class="card" data-id="{{id}}" style="width: 18rem;">
+    <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{post_title}} by {{userName}}</h5>
+      <p class="card-text">{{post_content}}</p>
     </div>
-    {{/each}}
+  </div>
+  {{/each}}
 
   </div>
   <div class="col-3">

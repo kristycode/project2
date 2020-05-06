@@ -38,13 +38,23 @@ module.exports = function (app) {
     db.Post.findAll({
       where: query
     }).then(function (dbPost) {
-      const data = dbPost.map(e =>
+      var data = dbPost.map(e =>
         e.dataValues
       );
-      res.render("dreamstream-home", {
-        post: data,
-        user: req.user,
-        style: "main.css"
+      console.log(data);
+      db.User.findOne({
+        where: {
+          id: data[0].UserId
+        }
+      }).then(function (dbUser) {
+        // console.log(dbUser.dataValues);
+        var data2 = dbUser.dataValues.username;
+        data[0].userName = data2;
+        res.render("dreamstream-home", {
+          post: data,
+          user: req.user,
+          style: "main.css"
+        });
       });
     });
   });
