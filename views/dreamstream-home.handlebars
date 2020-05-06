@@ -1,5 +1,4 @@
 {{> header}}
-
 <div class="row" id="mainContent">
   <div class="col-md-6 col-md-offset-3">
     <h2>Welcome {{user.username}} </h2>
@@ -8,16 +7,16 @@
 </div>
 <div class="row">
   <div class="col-3">
-<p>row 2 col 1</p>
+    <p>row 2 col 1</p>
   </div>
   <div class="col-6">
   {{#each post}}
-  <div class="card" data-id="{{id}}" style="width: 40rem;">
+  <div class="card" data-id="{{id}}" style="width: 25rem;">
     <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{post_title}} by {{User.dataValues.username}}</h5>
       <p class="card-text">{{post_content}}</p>
-      <button>Comments</button>
+      <button type="submit" class="btn btn-primary commentBtn">comments</button>
     </div>
   </div>
   </br>
