@@ -1,29 +1,29 @@
 {{> header}}
 <div class="row" id="mainContent">
   <div class="col-md-6 col-md-offset-3">
-    <h2>Welcome {{user.username}} </h2>
-    <a href="/new-dream" type="button" class="btn btn-info">post a dream</a>
+    <h2></h2>
+    <a href="/new-dream" type="button" class="btn btn-primary">post a dream</a>
   </div>
 </div>
 <div class="row">
-  <div class="col-3">
-    <p>row 2 col 1</p>
+  <div class="col-4">
+    {{!-- this is just a placeholder --}}
   </div>
-  <div class="col-6">
+  <div class="col-4">
   {{#each post}}
   <div class="card" data-id="{{id}}" style="width: 25rem;">
     <img class="card-img-top" src="{{{url_image}}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{post_title}} by {{User.dataValues.username}}</h5>
       <p class="card-text">{{post_content}}</p>
-      <button type="submit" class="btn btn-primary commentBtn">comments</button>
+      {{!-- <button type="submit" class="btn btn-primary commentBtn">comments</button> --}}
     </div>
   </div>
   </br>
   {{/each}} 
 
   </div>
-  <div class="col-3">
-
+  <div class="col-4">
+    {{!-- this is just a placeholder --}}
   </div>
 </div>
