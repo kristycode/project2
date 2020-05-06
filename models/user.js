@@ -14,24 +14,20 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       unique: true
     },
-    // The password cannot be null
     password: {
       type: DataTypes.STRING,
       allowNull: false
     }
   });
 
-  // User.associate = function (models) {
-  //   // Associating Author with Posts
-  //   // When an Author is deleted, also delete any associated Posts
-  //   User.hasMany(models.Post, {
-  //     onDelete: "cascade"
-  //   });
-
-  //   User.hasMany(models.Comment, {
-  //     onDelete: "cascade"
-  //   });
-  // };
+  User.associate = function (models) {
+    User.hasMany(models.Post, {
+      onDelete: "cascade"
+    });
+    User.hasMany(models.Comment, {
+      onDelete: "cascade"
+    });
+  };
 
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
