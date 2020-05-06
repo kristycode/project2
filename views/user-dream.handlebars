@@ -1,0 +1,27 @@
+{{> header}}
+
+<div class="card" data-id="{{post.id}}" style="width: 18rem;">
+    <img class="card-img-top" src="{{{post.url_image}}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{post.post_title}} by {{User.dataValues.username}}</h5>
+      <p class="card-text">{{post.post_content}}</p>
+      <form id="dreamComment" action="/api/posts" method="POST">
+          <div class="form-group">
+            <label for="commentBody">Comment:</label>
+            <textarea class="form-control" rows="10" id="comment"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+          </div>
+        </form>
+    </div>
+    <div class= "comment-container">
+      {{#each comments}}
+        <div class="card" data-id="{{id}}" style="width: 18rem;">
+        <div class="card-body">
+            <p class="card-text">{{commentary}} by {{User.dataValues.username}}</p>
+        </div>
+      {{/each}}
+    </div>
+    
+    
+</div>

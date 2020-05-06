@@ -53,7 +53,24 @@ module.exports = function (app) {
   });
 
   app.get("/new-dream", isAuthenticated, function (req, res) {
-    res.render("newDream", { user: req.user });
+    // res.render("newDream", { user: req.user });
+    var query = {};
+    if (req.query.post_id) {
+      query.PostId = req.query.post_id;
+    }
+    db.Comment.findAll({
+      where: query,
+      include: [db.User, db.Post]
+    }).then(function (dbComment) {
+      var data = dbComment.map(e =>
+        e.dataValues
+      );
+      res.render("new-dream", {
+        comment: data,
+        user: req.user,
+        style: "main.css"
+      });
+    });
   });
 
   app.get("/dreams/:id", (req, res) => {
@@ -66,10 +83,17 @@ module.exports = function (app) {
       // for the comment: {{Comment.dataValues.commentary}}
     })
       .then(detail => {
-        console.log(detail);
-        res.render("user-dream", {
-          post: detail
+        db.Comment.findAll({
+          where: {
+            PostId: req.params.id
+          }
+        }).then(function (dbComment) {
+          res.render("user-dream", {
+            post: detail,
+            comments: dbComment.dataValues
+          });
         });
+        console.log(detail);
       });
   });
 };
