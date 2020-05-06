@@ -1,5 +1,6 @@
 body {
     background-image: url(../assets/dreamscape.jpg);
+    background-color: rgba(22, 57, 97, 0.767);
     background-size: cover;
     color: whitesmoke;
 }
